@@ -1,0 +1,39 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.wrapper{
+    width: 750px;
+    height: auto;
+    padding: 15px;
+    margin: auto;
+}
+header{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(rgb(41, 39, 39), rgb(235, 235, 223),rgb(41, 39, 39));
+}
+.right{
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+}
+body{
+    background-image: url("/static/img/valhallaopened.jpg");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;   
+}
+textarea{
+    height: 125px;
+    width: 750px;
+}
+p{
+    background: gray;
+    display: inline-block;
+}
+.commentsection{
+    text-indent: 10px;
+}

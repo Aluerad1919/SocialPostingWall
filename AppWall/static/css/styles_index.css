@@ -1,0 +1,41 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.wrapper{
+    width: 750px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: auto;
+    background-image: url("/static/img/valhallaclosed.jpg");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+li{
+    color: white;
+    background: red;
+    list-style-type: none;
+}
+h1{
+    text-align: center;
+}
+.or{
+    margin: auto;
+    border: 2px solid white;
+    border-radius: 100%;
+    padding: 10px;
+    color: white;
+
+}
+.log{
+    color: white;
+    text-align: center;
+}
+.register{
+    color: white;
+    text-align: center;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_wall.css' %}">
+    <title>Ratatosk</title>
+</head>
+<body>
+    <div class="wrapper">
+
+        <header>
+            <h1>CodingDojo Wall</h1>
+            <div class='right'>
+                <h3>Wassup!!!  {{logged_in.first_name}} {{logged_in.last_name}}</h3>
+                <a href="/logout">Logout</a>
+            </div>
+        </header>
+
+        <div class='main'>
+
+            <form action="/post_to_wall" method="post">
+                {% csrf_token %}
+                <textarea name="new_message" id="" cols="30" rows="10"></textarea><br>
+                <button type="submit">Post a Message</button>
+            </form> 
+
+            {% for posts in messages_db reversed%}
+
+                <h3>{{posts.user_id.first_name}} {{posts.user_id.last_name}}</h3>
+                <p id="{{posts.id}}">{{posts.message}}</p>
+                {%if posts.user_id.id == logged_in.id%}
+                    <a href="/destroy/{{posts.id}}">Delete Post</a>
+                {%endif%}
+
+                <div class='commentsection'>
+                
+                    {%for com_post in posts.remarks.all reversed%}
+                        <h4>{{com_post.commenting_user.first_name}} has commented:</h4>
+                        <p id='{{com_post.id}}'>{{com_post.comment}}</p> 
+                    {% endfor %}
+
+                    <form action="/post_comment/{{i.id}}" method="post">
+                        {% csrf_token %}
+                        <textarea name="commet_to_post" id="" cols="30" rows="10"></textarea><br>
+                    <button type="submit">Comment</button>
+                    </form> 
+
+                </div>
+
+            {% endfor %}  
+            
+        </div>
+
+    </div>
+</body>
